@@ -1,0 +1,31 @@
+{
+  "name": "depenject",
+  "version": "0.0.1",
+  "description": "depenject is an IoC container to resolve dependencies",
+  "main": "index.js",
+  "scripts": {
+    "build": "tsc"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/rodrigo-speller/depenject.git"
+  },
+  "keywords": [
+    "dependency-injection",
+    "container",
+    "ioc",
+    "di"
+  ],
+  "author": {
+    "name": "Rodrigo Speller",
+    "email": "rspeller@primosti.com.br"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/rodrigo-speller/depenject/issues"
+  },
+  "homepage": "https://github.com/rodrigo-speller/depenject#readme",
+  "devDependencies": {
+    "typescript": "^3.7.3"
+  }
+}
