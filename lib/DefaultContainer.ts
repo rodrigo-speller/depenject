@@ -10,8 +10,7 @@ import {
   Tag,
   resolver
 } from './abstractions'
-import Entry, { EntryCtor } from './Entry';
-import EntryMap from './EntryMap';
+import { Entry, EntryCtor, EntryMap } from './Entry';
 
 export default class DefaultContainer implements Container, Activator {
   private entries = new EntryMap();

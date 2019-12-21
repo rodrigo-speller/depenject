@@ -2,8 +2,6 @@
 // Licensed under the Apache License, Version 2.0.
 // See License.txt in the project root for license information.
 
-import TransientEntry from './TransientEntry';
-import SingletonEntry from './SingletonEntry';
 import {
   Container,
   DependencyType,
@@ -12,7 +10,7 @@ import {
 } from './abstractions'
 
 import DefaultContainer from './DefaultContainer'
-import { EntryCtor } from './Entry';
+import { EntryCtor, SingletonEntry, TransientEntry } from './Entry';
 
 export default class ContainerBuilder {
   private container = new DefaultContainer();

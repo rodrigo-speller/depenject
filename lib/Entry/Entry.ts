@@ -6,7 +6,7 @@ import {
   Activator,
   DependencyResolver,
   DependencyType
-} from './abstractions'
+} from '../abstractions'
 
 export interface EntryCtor<T>
 {
@@ -31,3 +31,5 @@ export default abstract class Entry<T> {
     delete (this.factory as any)[symbol];
   }
 }
+
+export { Entry };
