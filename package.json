@@ -20,7 +20,7 @@
     "name": "Rodrigo Speller",
     "email": "rspeller@primosti.com.br"
   },
-  "license": "MIT",
+  "license": "Apache-2.0",
   "bugs": {
     "url": "https://github.com/rodrigo-speller/depenject/issues"
   },
