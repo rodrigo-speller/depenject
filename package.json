@@ -1,8 +1,11 @@
 {
   "name": "depenject",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "depenject is an IoC container to resolve dependencies",
-  "main": "index.js",
+  "main": "dist/index.js",
+  "files": [
+    "dist/**"
+  ],
   "scripts": {
     "build": "tsc",
     "test": "mocha -r ts-node/register test/**/*.test.ts",
