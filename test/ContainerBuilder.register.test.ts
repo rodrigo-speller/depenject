@@ -1,6 +1,4 @@
-import ContainerBuilder, { resolver } from '../lib'
-import { Container } from '../lib/abstractions';
-
+import { Container, ContainerBuilder, resolver } from '../lib'
 import { expect } from 'chai'
 
 class SampleService {

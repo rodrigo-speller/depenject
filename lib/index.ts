@@ -2,8 +2,8 @@
 // Licensed under the Apache License, Version 2.0.
 // See License.txt in the project root for license information.
 
-import { resolver } from './abstractions'
+import { resolver, Container } from './abstractions'
 import ContainerBuilder from './ContainerBuilder'
 
-export { ContainerBuilder, resolver }
+export { Container, ContainerBuilder, resolver }
 export default ContainerBuilder
