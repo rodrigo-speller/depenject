@@ -11,6 +11,6 @@ export default class TransientEntry<T> extends Entry<T> {
   }
 
   clone() {
-    return new TransientEntry<T>(this.factory);
+    return new TransientEntry<T>(this.tag, this.factory);
   }
 }

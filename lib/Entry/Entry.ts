@@ -5,18 +5,22 @@
 import {
   Activator,
   DependencyResolver,
-  DependencyType
+  DependencyType,
+  Tag
 } from '../abstractions'
 
 export interface EntryCtor<T>
 {
-  new(factory: DependencyType<T> | DependencyResolver<T>): Entry<T>;
+  new(tag: Tag, factory: DependencyType<T> | DependencyResolver<T>): Entry<T>;
 };
 
 export default abstract class Entry<T> {
+  readonly tag: Tag;
+  
   protected factory: DependencyType<T> | DependencyResolver<T>;
 
-  constructor(factory: DependencyType<T> | DependencyResolver<T>) {
+  constructor(tag: Tag, factory: DependencyType<T> | DependencyResolver<T>) {
+    this.tag = tag;
     this.factory = factory;
   }
 

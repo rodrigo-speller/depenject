@@ -20,6 +20,6 @@ export default class SingletonEntry<T> extends Entry<T> {
   }
 
   clone() : Entry<T> {
-    return new SingletonEntry<T>(this.factory);
+    return new SingletonEntry<T>(this.tag, this.factory);
   }
 }
