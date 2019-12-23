@@ -5,5 +5,5 @@
 import { resolver } from './abstractions'
 import ContainerBuilder from './ContainerBuilder'
 
-export { resolver }
+export { ContainerBuilder, resolver }
 export default ContainerBuilder
