@@ -30,6 +30,10 @@ export default abstract class Entry<T> {
   release(symbol: symbol) {
     delete (this.factory as any)[symbol];
   }
+
+  static getFromType<T>(type: DependencyType<T>, symbol: symbol): Entry<T> {
+    return (type as any)[symbol] as Entry<T>;
+  }
 }
 
 export { Entry };

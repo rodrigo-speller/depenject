@@ -23,7 +23,7 @@ export default class DefaultContainer implements Container, Activator {
 
     if (arg1 instanceof Function)
     {
-      entry = (arg1 as any)[this.containerSymbol] as Entry<T>;
+      entry = Entry.get(arg1, this.containerSymbol);
 
       if (entry == null)
         return this.activate(arg1);
