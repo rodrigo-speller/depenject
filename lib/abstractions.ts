@@ -18,7 +18,7 @@ export interface Activator
   activate<T>(factory: DependencyType<T> | DependencyResolver<T>): T;
 }
 
-export interface Container {
-  resolve<T>(type: DependencyType<T>): T;
-  resolve<T>(tag: Tag): T;
+export abstract class Container {
+  abstract resolve<T>(type: DependencyType<T>): T;
+  abstract resolve<T>(tag: Tag): T;
 }

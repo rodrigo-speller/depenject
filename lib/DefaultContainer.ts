@@ -12,7 +12,7 @@ import {
 } from './abstractions'
 import { Entry, EntryCtor, EntryMap } from './Entry';
 
-export default class DefaultContainer implements Container, Activator {
+export default class DefaultContainer extends Container implements Activator {
   private entries = new EntryMap();
   private containerSymbol = Symbol();
 
