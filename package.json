@@ -4,7 +4,9 @@
   "description": "depenject is an IoC container to resolve dependencies",
   "main": "index.js",
   "scripts": {
-    "build": "tsc"
+    "build": "tsc",
+    "test": "mocha -r ts-node/register test/**/*.test.ts",
+    "coverage": "nyc -r lcov -e .ts -x \"test/**/*.test.ts\" npm run test"
   },
   "repository": {
     "type": "git",
@@ -26,6 +28,12 @@
   },
   "homepage": "https://github.com/rodrigo-speller/depenject#readme",
   "devDependencies": {
-    "typescript": "^3.7.3"
+    "@types/chai": "^4.2.7",
+    "@types/mocha": "^5.2.7",
+    "chai": "^4.2.0",
+    "mocha": "^6.2.2",
+    "nyc": "^15.0.0",
+    "ts-node": "^8.5.4",
+    "typescript": "^3.7.4"
   }
 }
