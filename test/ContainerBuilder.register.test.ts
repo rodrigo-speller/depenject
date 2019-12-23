@@ -13,7 +13,7 @@ describe('ContainerBuilder.register tests', () => {
       .register(SampleService)
       .build();
 
-    expect(container).exist;
+    expect(container).instanceOf(Container);
   });
 
   it('register string-tagged transient service', () => {
@@ -21,7 +21,7 @@ describe('ContainerBuilder.register tests', () => {
       .register('sample', SampleService)
       .build();
 
-    expect(container).exist;
+    expect(container).instanceOf(Container);
   });
 
   it('register symbol-tagged transient service', () => {
@@ -29,7 +29,7 @@ describe('ContainerBuilder.register tests', () => {
       .register(Symbol(), SampleService)
       .build();
 
-    expect(container).exist;
+    expect(container).instanceOf(Container);
   });
 
   it('register a singleton service', () => {
@@ -37,7 +37,7 @@ describe('ContainerBuilder.register tests', () => {
       .registerSingleton(SampleService)
       .build();
 
-    expect(container).exist;
+    expect(container).instanceOf(Container);
   });
 
   it('register string-tagged Singleton service', () => {
@@ -45,7 +45,7 @@ describe('ContainerBuilder.register tests', () => {
       .registerSingleton('sample', SampleService)
       .build();
 
-    expect(container).exist;
+    expect(container).instanceOf(Container);
   });
 
   it('register symbol-tagged Singleton service', () => {
@@ -53,7 +53,7 @@ describe('ContainerBuilder.register tests', () => {
       .registerSingleton(Symbol(), SampleService)
       .build();
 
-    expect(container).exist;
+    expect(container).instanceOf(Container);
   });
 
   it('invalid registration', () => {
