@@ -4,3 +4,6 @@ install:
  - npm install
 script:
  - npm test
+after_success:
+ - npm run coverage
+ - npm run publish-coverage
