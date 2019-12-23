@@ -1,3 +1,8 @@
+# depenject
+
+[![Build Status](https://travis-ci.org/rodrigo-speller/depenject.svg?branch=master)](https://travis-ci.org/rodrigo-speller/depenject)
+[![Coverage Status](https://coveralls.io/repos/github/rodrigo-speller/depenject/badge.svg?branch=master)](https://coveralls.io/github/rodrigo-speller/depenject?branch=master)
+
 # License
 Copyright 2019 Rodrigo Speller
 
