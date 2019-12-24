@@ -1,0 +1,8 @@
+{
+  "name": "depenject-samples",
+  "version": "0.0.2",
+  "description": "depenject is an IoC container to resolve dependencies.",
+  "dependencies": {
+    "depenject": "file:.."
+  }
+}
