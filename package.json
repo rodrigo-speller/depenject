@@ -1,13 +1,14 @@
 {
   "name": "depenject",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "depenject is an IoC container to resolve dependencies",
   "main": "dist/index.js",
+  "types": "dist/index.d.ts",
   "files": [
     "dist/**"
   ],
   "scripts": {
-    "build": "tsc",
+    "build": "tsc && dts-bundle-generator -o dist/index.d.ts lib/index.ts",
     "test": "mocha -r ts-node/register test/**/*.test.ts",
     "coverage": "nyc -r lcov -e .ts -x \"test/**/*.test.ts\" npm run test",
     "publish-coverage": "nyc report --reporter=text-lcov | coveralls"
@@ -36,6 +37,7 @@
     "@types/mocha": "^5.2.7",
     "chai": "^4.2.0",
     "coveralls": "^3.0.9",
+    "dts-bundle-generator": "^3.3.1",
     "mocha": "^6.2.2",
     "nyc": "^15.0.0",
     "ts-node": "^8.5.4",

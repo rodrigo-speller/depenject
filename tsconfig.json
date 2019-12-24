@@ -2,10 +2,10 @@
   "compilerOptions": {
     "target": "ES6",
     "module": "CommonJS",
-    "declaration": true,
+    "declaration": false,
     "outDir": "./dist",
     "rootDir": "./lib",
     "strict": true
   },
-"include": [ "./lib/index.ts" ]
+  "include": [ "./lib/index.ts" ]
 }
