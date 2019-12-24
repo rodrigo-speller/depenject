@@ -1,6 +1,6 @@
 {
   "name": "depenject-samples",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "depenject is an IoC container to resolve dependencies.",
   "dependencies": {
     "depenject": "file:.."
