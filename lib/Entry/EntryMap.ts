@@ -24,4 +24,10 @@ export default class EntryMap {
     for(let k of Object.getOwnPropertySymbols(bucket))
       fn(k, bucket[k]);
   }
+  
+  clone(): EntryMap {
+    let entries = new EntryMap();
+    this.forEach((tag, entry) => entries.set(tag, entry.clone()));
+    return entries;
+  }
 }

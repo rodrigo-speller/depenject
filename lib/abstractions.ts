@@ -19,6 +19,7 @@ export interface Activator
 }
 
 export abstract class Container {
+  abstract createScope(): Container;
   abstract resolve<T>(type: DependencyType<T>): T;
   abstract resolve<T>(tag: Tag): T;
 }

@@ -8,9 +8,13 @@ import {
   DependencyResolver,
   Tag
 } from './abstractions'
-
+import {
+  EntryCtor,
+  ScopedEntry,
+  SingletonEntry,
+  TransientEntry
+} from './Entry';
 import DefaultContainer from './DefaultContainer'
-import { EntryCtor, SingletonEntry, TransientEntry } from './Entry';
 
 export default class ContainerBuilder {
   private container = new DefaultContainer();
@@ -65,5 +69,16 @@ export default class ContainerBuilder {
     ): ContainerBuilder
   {
     return this.registerInternal(arg1, arg2, SingletonEntry);
+  }
+  
+  public registerScoped<T>(type: DependencyType<T>): ContainerBuilder;
+  public registerScoped<T>(tag: Tag, type: DependencyType<T>): ContainerBuilder;
+  public registerScoped<T>(tag: Tag, factory: DependencyResolver<T>): ContainerBuilder;
+  public registerScoped<T>(
+    arg1: DependencyType<T> | Tag,
+    arg2?: DependencyType<T> | DependencyResolver<T>
+    ): ContainerBuilder
+  {
+    return this.registerInternal(arg1, arg2, ScopedEntry);
   }
 }
