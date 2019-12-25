@@ -14,12 +14,14 @@ import ContainerBase from "./ContainerBase";
 import ResolvingTagStack from './ResolvingTagStack'
 import CircularDependencyError from "./Error/CircularDependencyError";
 
-export default class ActivatorContainer implements Activator, Container
+export default class ActivatorContainer extends Container implements Activator
 {
   private readonly source: ContainerBase;
   private readonly resolvingStack: ResolvingTagStack;
 
   constructor(source: ContainerBase, resolvingStack: ResolvingTagStack = new ResolvingTagStack()) {
+    super();
+
     this.source = source;
     this.resolvingStack = resolvingStack;
   }
