@@ -4,7 +4,64 @@
 [![Coverage Status](https://coveralls.io/repos/github/rodrigo-speller/depenject/badge.svg?branch=master)](https://coveralls.io/github/rodrigo-speller/depenject?branch=master)
 [![npm version](https://badge.fury.io/js/depenject.svg)](https://www.npmjs.com/package/depenject)
 
-# Sample
+**depenject** is a lightweight and fast IoC container to resolve dependencies, achieving Inversion of Control (IoC) between their dependencies.
+
+## Installing
+
+For the latest stable version:
+
+```Shell
+npm install depenject
+```
+## Contribute
+
+There are many ways to [contribute](https://github.com/rodrigo-speller/depenject/blob/master/CONTRIBUTING.md) to depenject:
+
+* [Submit bugs](https://github.com/rodrigo-speller/depenject/issues) and help us verify fixes as they are checked in.
+* Review the [source code changes](https://github.com/rodrigo-speller/depenject/pulls).
+* [Contribute bug fixes](https://github.com/rodrigo-speller/depenject/blob/master/CONTRIBUTING.md).
+<!--
+* Engage with other depenject users and developers on [StackOverflow](https://stackoverflow.com/questions/tagged/depenject).
+-->
+<!--
+* Join the [#depenject](https://twitter.com/search?q=%23depenject) discussion on Twitter.
+-->
+
+## Documentation
+
+*  [Overview of dependency injection with depenject](docs/OVERVIEW.md)
+
+## Building
+
+In order to build the depenject, ensure that you have [Git](https://git-scm.com/downloads) and [Node.js](https://nodejs.org/) installed.
+
+Clone a copy of the repo:
+
+```Shell
+git clone https://github.com/rodrigo-speller/depenject.git
+```
+
+Change to the depenject directory:
+
+```Shell
+cd depenject
+```
+
+Install tools and dev dependencies:
+
+```Shell
+npm install
+```
+
+Use one of the following to build and test:
+
+```
+npm run build       # Build the library into "dist" directory.
+npm run test        # Test the library code.
+npm run coverage    # Generates the coverage from the tests.
+```
+
+## A simple sample to copy-and-paste
 
 ```typescript
 // name-provider.ts
