@@ -24,17 +24,9 @@ class ComplexService {
   }
 }
 
-class SingletonService {
-  static [resolver](container: Container): SingletonService {
-    return new SingletonService();
-  }
-}
+class SingletonService { }
 
-class ScopedService {
-  static [resolver](container: Container): ScopedService {
-    return new ScopedService();
-  }
-}
+class ScopedService { }
 
 class SuperScopedService {
   singletonDependency: SingletonService;

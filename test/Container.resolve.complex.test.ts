@@ -34,17 +34,9 @@ class TwoDependencyService {
   }
 }
 
-class DependencyService {
-  static [resolver](container: Container): DependencyService {
-    return new DependencyService();
-  }
-}
+class DependencyService { }
 
-class NotRegisteredService {
-  static [resolver](container: Container): NotRegisteredService {
-    return new NotRegisteredService();
-  }
-}
+class NotRegisteredService { }
 
 describe('Complex Container.resolve tests', () => {
   it('resolve a service with a registered dependency', () => {

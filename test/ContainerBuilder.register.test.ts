@@ -1,11 +1,7 @@
 import { Container, ContainerBuilder, resolver } from '../lib'
 import { expect } from 'chai'
 
-class SampleService {
-  static [resolver](container: Container): SampleService {
-    return new SampleService();
-  }
-}
+class SampleService { }
 
 describe('ContainerBuilder.register tests', () => {
   it('register a transient service', () => {

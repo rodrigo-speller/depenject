@@ -6,10 +6,16 @@ export const resolver = Symbol();
 
 export type Tag = string | symbol
 
-export interface DependencyType<T> {
+interface SimpleDependencyType<T> {
+  new(container: Container): T;
+}
+
+export interface ComplexDependencyType<T> {
   new(...args: any): T;
   [resolver](container: Container): T;
 }
+
+export type DependencyType<T> = SimpleDependencyType<T> | ComplexDependencyType<T>;
 
 export type DependencyResolver<T> = (container: Container) => T;
 
@@ -22,4 +28,18 @@ export abstract class Container {
   abstract createScope(): Container;
   abstract resolve<T>(type: DependencyType<T>): T;
   abstract resolve<T>(tag: Tag): T;
+}
+
+export function getResolver<T>(type: DependencyType<T>): DependencyResolver<T> {
+  let typeFactory = (<ComplexDependencyType<T>>type)[resolver];
+
+  if (typeFactory != null)
+    return typeFactory;
+
+  return (container: Container) => new type(container);
+}
+
+export function isClass(func: Function) {
+  return typeof func === 'function' 
+    && Function.prototype.toString.call(func).substr(0, 5) == 'class';
 }

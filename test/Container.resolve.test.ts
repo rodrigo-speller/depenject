@@ -1,13 +1,49 @@
 import { Container, ContainerBuilder, resolver } from '../lib'
 import { expect } from 'chai'
 
-class SampleService {
-  static [resolver](container: Container): SampleService {
-    return new SampleService();
-  }
-}
+class SampleService { }
 
 describe('Container.resolve tests', () => {
+  it('resolve service using constructor', () => {
+    class Service {
+      readonly container: Container;
+      constructor (container: Container) {
+        this.container = container;
+      }
+    }
+
+    let container = new ContainerBuilder()
+      .register(Service)
+      .build();
+
+    let a = container.resolve(Service);
+
+    expect(a).exist.instanceOf(Service);
+    expect(a.container).instanceOf(Container);
+  });
+
+  it('resolve service using resolver', () => {
+    class Service {
+      readonly success: boolean;
+      constructor (success: boolean) {
+        this.success = success;
+      }
+
+      static [resolver](container: Container) {
+        return new Service(container instanceof Container)
+      }
+    }
+
+    let container = new ContainerBuilder()
+      .register(Service)
+      .build();
+
+    let a = container.resolve(Service);
+
+    expect(a).exist.instanceOf(Service);
+    expect(a.success).equals(true);
+  });
+
   it('resolve a transient service', () => {
     let container = new ContainerBuilder()
       .register(SampleService)

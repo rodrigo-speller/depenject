@@ -3,6 +3,8 @@
 // See License.txt in the project root for license information.
 
 import {
+  getResolver,
+  isClass,
   resolver,
   Activator,
   Container,
@@ -27,10 +29,8 @@ export default class ActivatorContainer extends Container implements Activator
   }
 
   activate<T>(factory: DependencyType<T> | DependencyResolver<T>): T {
-    let typeFactory = (<DependencyType<T>>factory)[resolver];
-
-    if (typeFactory != null)
-      factory = typeFactory;
+    if (isClass(factory))
+      factory = getResolver(factory as DependencyType<T>);
 
     return (<DependencyResolver<T>>factory)(this);
   }

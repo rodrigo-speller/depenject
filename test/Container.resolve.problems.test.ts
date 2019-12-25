@@ -5,30 +5,18 @@ import CircularDependencyError from '../lib/Error/CircularDependencyError';
 class SingleDependencyService {
   dependency: CircularDependencyService;
 
-  constructor(dependecy: CircularDependencyService)
+  constructor(container: Container)
   {
-    this.dependency = dependecy;
-  }
-
-  static [resolver](container: Container): SingleDependencyService {
-    return new SingleDependencyService(
-      container.resolve(CircularDependencyService)
-    );
+    this.dependency = container.resolve(CircularDependencyService);
   }
 }
 
 class CircularDependencyService {
   dependency: SingleDependencyService;
 
-  constructor(dependency: SingleDependencyService)
+  constructor(container: Container)
   {
-    this.dependency = dependency;
-  }
-
-  static [resolver](container: Container): CircularDependencyService {
-    return new CircularDependencyService(
-      container.resolve(SingleDependencyService)
-    );
+    this.dependency = container.resolve(SingleDependencyService);
   }
 }
 
