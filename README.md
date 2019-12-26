@@ -13,6 +13,13 @@ For the latest stable version:
 ```Shell
 npm install depenject
 ```
+
+## depenject components and extensions
+
+|name|description|version|
+|-|-|-|
+|[depenject-express](https://github.com/rodrigo-speller/depenject-express)|A middleware for [express](https://expressjs.com/) that provides dependency injection to your requests.|[![npm version](https://badge.fury.io/js/depenject-express.svg)](https://www.npmjs.com/package/depenject-express)|
+
 ## Contribute
 
 There are many ways to [contribute](https://github.com/rodrigo-speller/depenject/blob/master/CONTRIBUTING.md) to depenject:
