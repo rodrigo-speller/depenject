@@ -11,16 +11,18 @@ import {
 
 export interface EntryCtor<T>
 {
-  new(tag: Tag, factory: DependencyType<T> | DependencyResolver<T>): Entry<T>;
+  new(tag: Tag, type: DependencyType<T> | null, factory: DependencyResolver<T>): Entry<T>;
 };
 
 export default abstract class Entry<T> {
   readonly tag: Tag;
   
-  protected factory: DependencyType<T> | DependencyResolver<T>;
+  protected readonly factory: DependencyResolver<T>;
+  protected readonly type: DependencyType<T> | null;
 
-  constructor(tag: Tag, factory: DependencyType<T> | DependencyResolver<T>) {
+  constructor(tag: Tag, type: DependencyType<T> | null, factory: DependencyResolver<T>) {
     this.tag = tag;
+    this.type = type;
     this.factory = factory;
   }
 
@@ -28,15 +30,17 @@ export default abstract class Entry<T> {
   abstract clone(): Entry<T>;
 
   hold(symbol: symbol) {
-    (this.factory as any)[symbol] = this;
+    if (this.type != null)
+      (this.type as any)[symbol] = this;
   }
 
   release(symbol: symbol) {
-    delete (this.factory as any)[symbol];
+    if (this.type != null)
+      delete (this.type as any)[symbol];
   }
 
-  static get<T>(type: DependencyType<T>, symbol: symbol): Entry<T> {
-    return (type as any)[symbol] as Entry<T>;
+  static get<T>(type: DependencyType<T>, symbol: symbol): Entry<T> | undefined {
+    return (type as any)[symbol] as Entry<T> | undefined;
   }
 }
 

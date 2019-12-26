@@ -20,6 +20,6 @@ export default class ScopedEntry<T> extends Entry<T> {
   }
 
   clone() : Entry<T> {
-    return new ScopedEntry<T>(this.tag, this.factory);
+    return new ScopedEntry<T>(this.tag, this.type, this.factory);
   }
 }

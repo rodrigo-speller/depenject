@@ -21,7 +21,7 @@ export type DependencyResolver<T> = (container: Container) => T;
 
 export interface Activator
 {
-  activate<T>(factory: DependencyType<T> | DependencyResolver<T>): T;
+  activate<T>(factory: DependencyResolver<T>): T;
 }
 
 export abstract class Container {
@@ -39,7 +39,6 @@ export function getResolver<T>(type: DependencyType<T>): DependencyResolver<T> {
   return (container: Container) => new type(container);
 }
 
-export function isClass(func: Function) {
-  return typeof func === 'function' 
-    && Function.prototype.toString.call(func).substr(0, 5) == 'class';
+export function isDependencyType<T>(factory: DependencyType<T> | DependencyResolver<T>): factory is DependencyType<T> {
+  return Function.prototype.toString.call(factory).substr(0, 5) == 'class';
 }

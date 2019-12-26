@@ -3,6 +3,8 @@
 // See License.txt in the project root for license information.
 
 import {
+  isDependencyType,
+  getResolver,
   Container,
   DependencyType,
   Tag,
@@ -48,8 +50,19 @@ export default abstract class ContainerBase extends Container {
   }
 
   createEntry<T>(tag: Tag, factory: DependencyType<T> | DependencyResolver<T>, lifetime: EntryCtor<T>): Entry<T> {
-    let entry = new lifetime(tag, factory);
-    entry.hold(this.containerSymbol);
+    let entry: Entry<T>;
+    if (isDependencyType(factory))
+    {
+      let type = factory;
+      factory = getResolver(type);
+      entry = new lifetime(tag, type, factory);
+      entry.hold(this.containerSymbol);
+    }
+    else
+    {
+      entry = new lifetime(tag, null, factory);
+    }
+
     return entry;
   }
 

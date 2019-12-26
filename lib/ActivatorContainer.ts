@@ -3,9 +3,6 @@
 // See License.txt in the project root for license information.
 
 import {
-  getResolver,
-  isClass,
-  resolver,
   Activator,
   Container,
   DependencyResolver,
@@ -28,10 +25,7 @@ export default class ActivatorContainer extends Container implements Activator
     this.resolvingStack = resolvingStack;
   }
 
-  activate<T>(factory: DependencyType<T> | DependencyResolver<T>): T {
-    if (isClass(factory))
-      factory = getResolver(factory as DependencyType<T>);
-
+  activate<T>(factory: DependencyResolver<T>): T {
     return (<DependencyResolver<T>>factory)(this);
   }
 
