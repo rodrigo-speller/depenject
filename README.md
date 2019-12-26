@@ -3,6 +3,7 @@
 [![Build Status](https://travis-ci.org/rodrigo-speller/depenject.svg?branch=master)](https://travis-ci.org/rodrigo-speller/depenject)
 [![Coverage Status](https://coveralls.io/repos/github/rodrigo-speller/depenject/badge.svg?branch=master)](https://coveralls.io/github/rodrigo-speller/depenject?branch=master)
 [![npm version](https://badge.fury.io/js/depenject.svg)](https://www.npmjs.com/package/depenject)
+[![Gitpod Ready-to-Code](https://img.shields.io/badge/Gitpod-Ready--to--Code-blue?logo=gitpod)](https://gitpod.io/#https://github.com/rodrigo-speller/depenject)
 
 **depenject** is a lightweight and fast IoC container to resolve dependencies, achieving Inversion of Control (IoC) between their dependencies.
 
