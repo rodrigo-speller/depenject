@@ -10,8 +10,10 @@
   "scripts": {
     "build": "tsc && dts-bundle-generator -o dist/index.d.ts lib/index.ts",
     "test": "mocha -r ts-node/register test/**/*.test.ts",
-    "coverage": "nyc -r lcov -e .ts -x \"test/**/*.test.ts\" npm run test",
-    "publish-coverage": "nyc report --reporter=text-lcov | coveralls"
+    "coverage": "nyc -e .ts -x \"test/**/*.test.ts\" npm test",
+    "coverage-report": "nyc report -r html",
+    "coverage-publish": "nyc report -r=text-lcov | coveralls",
+    "clean": "shx rm -r ./dist ./.nyc_output ./coverage || exit 0"
   },
   "repository": {
     "type": "git",
@@ -40,6 +42,7 @@
     "dts-bundle-generator": "^3.3.1",
     "mocha": "^6.2.2",
     "nyc": "^15.0.0",
+    "shx": "^0.3.2",
     "ts-node": "^8.5.4",
     "typescript": "^3.7.4"
   }
