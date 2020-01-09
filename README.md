@@ -74,33 +74,23 @@ npm run coverage    # Generates the coverage from the tests.
 ```typescript
 // name-provider.ts
 
-import { resolver } from 'depenject';
-
 export default class NameProvider {
   public name: string = "World";
-
-  static [resolver]() {
-    return new NameProvider();
-  }
 }
 ```
 
 ```typescript
 // hello-service.ts
 
-import { Container, resolver } from 'depenject';
+import { Container } from 'depenject';
 
 import NameProvider from './name-provider';
 
 export default class HelloService {
   private nameProvider: NameProvider;
 
-  constructor(nameProvider: NameProvider) {
-    this.nameProvider = nameProvider;
-  }
-
-  static [resolver](container: Container) {
-    return new HelloService(container.resolve(NameProvider));
+  constructor(container: Container) {
+    this.nameProvider = container.resolve(NameProvider);
   }
 
   sayHello() {
@@ -112,7 +102,7 @@ export default class HelloService {
 ```typescript
 // hello.ts
 
-import { Container, ContainerBuilder, resolver } from 'depenject';
+import { Container, ContainerBuilder } from 'depenject';
 import NameProvider from './name-provider';
 import HelloService from './hello-service';
 
@@ -138,6 +128,34 @@ The *hello* sample outputs the below text in console:
 ```
 Hello World!
 Hello Rodrigo Speller!
+```
+
+### Defining a custom resolver
+
+If you need, you can also define a custom resolver to inject dependencies directly into service's constructor.
+
+```typescript
+// hello-service.ts
+
+import { Container, resolver } from 'depenject';
+
+import NameProvider from './name-provider';
+
+export default class HelloService {
+  private nameProvider: NameProvider;
+
+  constructor(nameProvider: NameProvider) {
+    this.nameProvider = nameProvider;
+  }
+
+  static [resolver](container: Container) {
+    return new HelloService(container.resolve(NameProvider));
+  }
+
+  sayHello() {
+    console.log("Hello " + this.nameProvider.name + "!");
+  }
+}
 ```
 
 # License

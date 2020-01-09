@@ -22,10 +22,6 @@ class HelloService {
 
 class NameProvider {
   public name: string = "World";
-
-  static [resolver]() {
-    return new NameProvider();
-  }
 }
 
 ///

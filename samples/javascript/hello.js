@@ -34,10 +34,6 @@ class NameProvider {
    * @type {string}
    */
   name = "World";
-
-  static [resolver]() {
-    return new NameProvider();
-  }
 }
 
 ///
