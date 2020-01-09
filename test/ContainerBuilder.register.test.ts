@@ -20,6 +20,15 @@ describe('ContainerBuilder.register tests', () => {
     expect(container).instanceOf(Container);
   });
 
+  it('register string-tagged transient service twice', () => {
+    let container = new ContainerBuilder()
+      .register('sample', SampleService)
+      .register('sample', SampleService)
+      .build();
+
+    expect(container).instanceOf(Container);
+  });
+
   it('register symbol-tagged transient service', () => {
     let container = new ContainerBuilder()
       .register(Symbol(), SampleService)
