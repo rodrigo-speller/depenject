@@ -24,7 +24,7 @@ jobs:
       run: |
         npm ci
         npm run build
-        npm coverage
+        npm run coverage
       env:
         CI: true
 
