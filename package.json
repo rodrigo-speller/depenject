@@ -3,17 +3,18 @@
   "version": "0.0.5",
   "description": "depenject is an IoC container to resolve dependencies",
   "main": "dist/index.js",
+  "type": "module",
   "types": "dist/index.d.ts",
   "files": [
     "dist/**"
   ],
   "scripts": {
     "build": "tsc && dts-bundle-generator -o dist/index.d.ts lib/index.ts",
-    "test": "mocha -r ts-node/register test/**/*.test.ts",
-    "coverage": "nyc -e .ts -x \"test/**/*.test.ts\" npm test",
-    "coverage-report": "nyc report -r html",
-    "coverage-publish": "nyc report -r=text-lcov | coveralls",
-    "clean": "shx rm -r ./dist ./.nyc_output ./coverage || exit 0"
+    "test": "mocha test/**/*.test.ts",
+    "coverage": "c8 -e .ts -x \"test/**/*.test.ts\" npm test",
+    "coverage-report": "c8 report -r html",
+    "coverage-publish": "c8 report -r=text-lcov | coveralls",
+    "clean": "shx rm -r ./dist ./coverage || exit 0"
   },
   "repository": {
     "type": "git",
@@ -35,15 +36,15 @@
   },
   "homepage": "https://github.com/rodrigo-speller/depenject#readme",
   "devDependencies": {
-    "@types/chai": "^4.2.7",
-    "@types/mocha": "^5.2.7",
-    "chai": "^4.2.0",
-    "coveralls": "^3.0.9",
-    "dts-bundle-generator": "^3.3.1",
-    "mocha": "^6.2.2",
-    "nyc": "^15.0.0",
+    "@types/chai": "^4.3.11",
+    "@types/mocha": "^10.0.6",
+    "c8": "^9.1.0",
+    "chai": "^5.0.0",
+    "coveralls": "^3.1.1",
+    "dts-bundle-generator": "^9.2.4",
+    "mocha": "^10.2.0",
     "shx": "^0.3.2",
-    "ts-node": "^8.5.4",
-    "typescript": "^3.7.4"
+    "ts-node": "^10.9.2",
+    "typescript": "^5.3.3"
   }
 }
