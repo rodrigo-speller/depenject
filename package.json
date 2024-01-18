@@ -13,7 +13,6 @@
     "test": "mocha test/**/*.test.ts",
     "coverage": "c8 -e .ts -x \"test/**/*.test.ts\" npm test",
     "coverage-report": "c8 report -r html",
-    "coverage-publish": "c8 report -r=text-lcov | coveralls",
     "clean": "shx rm -r ./dist ./coverage || exit 0"
   },
   "repository": {
@@ -40,7 +39,6 @@
     "@types/mocha": "^10.0.6",
     "c8": "^9.1.0",
     "chai": "^5.0.0",
-    "coveralls": "^3.1.1",
     "dts-bundle-generator": "^9.2.4",
     "mocha": "^10.2.0",
     "shx": "^0.3.2",

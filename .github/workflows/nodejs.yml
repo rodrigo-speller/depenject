@@ -27,21 +27,3 @@ jobs:
         npm run coverage
       env:
         CI: true
-
-    - name: Coveralls Parallel
-      uses: coverallsapp/github-action@v2
-      with:
-        flag-name: run-${{ join(matrix.*, '-') }}
-        parallel: true
-
-  finish:
-    needs: build
-    if: ${{ always() }}
-    runs-on: ubuntu-latest
-    steps:
-    - name: Coveralls Finished
-      uses: coverallsapp/github-action@v2
-      with:
-        github-token: ${{ github.token }}
-        parallel-finished: true
-        carryforward: "run-14.x,run-16.x,run-18.x"
